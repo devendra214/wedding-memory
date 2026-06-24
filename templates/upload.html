@@ -1,4 +1,5 @@
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,10 +238,10 @@ textarea{
 
     <div class="photo-stack">
 
-        <img src="/media/slider/photo1.png" class="stack-card">
-        <img src="/media/slider/photo2.png" class="stack-card">
-        <img src="/media/slider/photo3.png" class="stack-card">
-        <img src="/media/slider/photo4.png" class="stack-card">
+        <img src="{% static 'slider/photo1.png' %}" class="stack-card">
+        <img src="{% static 'slider/photo2.png' %}" class="stack-card">
+        <img src="{% static 'slider/photo3.png' %}" class="stack-card">
+        <img src="{% static 'slider/photo4.png' %}" class="stack-card">
 
     </div>
 
