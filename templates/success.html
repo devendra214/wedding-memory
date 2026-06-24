@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Successful</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(
+        135deg,
+        #ffdde1,
+        #ee9ca7,
+        #fad0c4
+    );
+}
+
+/* Falling Flowers */
+.flowers{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.flowers span{
+    position:absolute;
+    top:-100px;
+    font-size:20px;
+    opacity:0.8;
+    animation:fall linear infinite;
+}
+
+.flowers span:nth-child(1){left:5%;animation-duration:10s;}
+.flowers span:nth-child(2){left:15%;animation-duration:14s;}
+.flowers span:nth-child(3){left:25%;animation-duration:11s;}
+.flowers span:nth-child(4){left:35%;animation-duration:13s;}
+.flowers span:nth-child(5){left:45%;animation-duration:9s;}
+.flowers span:nth-child(6){left:55%;animation-duration:15s;}
+.flowers span:nth-child(7){left:65%;animation-duration:12s;}
+.flowers span:nth-child(8){left:75%;animation-duration:10s;}
+.flowers span:nth-child(9){left:85%;animation-duration:14s;}
+.flowers span:nth-child(10){left:95%;animation-duration:11s;}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(120vh) rotate(360deg);
+    }
+}
+
+/* Card */
+.success-card{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:600px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.15);
+}
+
+h1{
+    font-size:2.8rem;
+    color:white;
+    margin-bottom:15px;
+}
+
+h2{
+    color:white;
+    font-weight:400;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn-container{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.btn{
+    text-decoration:none;
+    flex:1;
+}
+
+.btn button{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.upload-btn{
+    background:#28a745;
+    color:white;
+}
+
+.gallery-btn{
+    background:#ff8c00;
+    color:white;
+}
+
+.btn button:hover{
+    transform:translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width: 600px){
+
+    .success-card{
+        padding:30px 20px;
+    }
+
+    h1{
+        font-size:2rem;
+    }
+
+    h2{
+        font-size:1rem;
+    }
+
+    .btn-container{
+        flex-direction:column;
+    }
+
+    .btn button{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="flowers">
+    <span>🌸</span>
+    <span>🌺</span>
+    <span>🌸</span>
+    <span>🌷</span>
+    <span>🌹</span>
+    <span>🌸</span>
+    <span>🌺</span>
+    <span>🌷</span>
+    <span>🌹</span>
+    <span>🌸</span>
+</div>
+
+<div class="success-card">
+
+    <h1>❤️ Thank You ❤️</h1>
+
+    <h2>
+        Your memory has been uploaded successfully.<br>
+        Thank you for being part of our special celebration.
+    </h2>
+
+    <div class="btn-container">
+
+        <a href="/" class="btn">
+            <button class="upload-btn">
+                ➕ Upload Next Memory
+            </button>
+        </a>
+
+        <a href="/gallery/" class="btn">
+            <button class="gallery-btn">
+                📸 View Gallery
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

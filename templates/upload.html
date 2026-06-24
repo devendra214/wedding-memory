@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Memories</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7,#fad0c4);
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:0 auto;
+}
+
+.header{
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.header h3{
+    margin-bottom:10px;
+}
+
+.header p{
+    font-size:18px;
+}
+
+.top-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.top-buttons a{
+    text-decoration:none;
+}
+
+.top-buttons button{
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.top-buttons button:hover{
+    transform:translateY(-2px);
+}
+
+.gallery-btn{
+    background:#ff9800;
+}
+
+.admin-btn{
+    background:#6c63ff;
+}
+
+.form-card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+#preview{
+    display:none;
+    width:100%;
+    max-width:300px;
+    margin:10px auto 20px;
+    border-radius:15px;
+    border:3px solid #f0f0f0;
+}
+
+.submit-btn{
+    width:100%;
+    border:none;
+    background:#28a745;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:#23913d;
+}
+
+.footer-text{
+    text-align:center;
+    margin-top:15px;
+    color:white;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+
+    .header h1{
+        font-size:2rem;
+    }
+
+    .header p{
+        font-size:16px;
+    }
+
+    .form-card{
+        padding:20px;
+    }
+
+    .top-buttons{
+        flex-direction:column;
+    }
+
+    .top-buttons a{
+        width:100%;
+    }
+
+    .top-buttons button{
+        width:100%;
+    }
+}
+
+
+
+.photo-stack{
+    position:relative;
+    width:320px;
+    height:220px;
+    margin:0 auto 25px;
+    
+}
+
+.stack-card{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    transition:all 0.8s ease;
+    object-fit: contain;
+    
+}
+
+.stack-card:nth-child(1){
+    transform:translate(0,0) scale(1);
+    z-index:4;
+}
+
+.stack-card:nth-child(2){
+    transform:translate(25px,-15px) scale(0.92);
+    z-index:3;
+    opacity:.85;
+}
+
+.stack-card:nth-child(3){
+    transform:translate(50px,-30px) scale(0.84);
+    z-index:2;
+    opacity:.65;
+}
+
+.stack-card:nth-child(4){
+    transform:translate(75px,-45px) scale(0.76);
+    z-index:1;
+    opacity:.45;
+}
+
+@media(max-width:600px){
+
+    .photo-stack{
+        width:260px;
+        height:180px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>💍 Somesh ❤️ Nidhi</h1>
+        <h3>Wedding Memories</h3>
+        <p>Share your selfie and wishes with us ✨</p>
+    </div>
+
+    <div class="photo-stack">
+
+        <img src="/media/slider/photo1.png" class="stack-card">
+        <img src="/media/slider/photo2.png" class="stack-card">
+        <img src="/media/slider/photo3.png" class="stack-card">
+        <img src="/media/slider/photo4.png" class="stack-card">
+
+    </div>
+
+    <div class="top-buttons">
+
+        <a href="/gallery/">
+            <button class="gallery-btn">
+                📸 View Gallery
+            </button>
+        </a>
+
+        <a href="/admin/">
+            <button class="admin-btn">
+                🔐 Admin Login
+            </button>
+        </a>
+
+    </div>
+
+    <div class="form-card">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <!-- Django -->
+            {% csrf_token %}
+
+            <label>Take a Selfie 📸</label>
+            <div class="mb-3">
+
+    <br>
+
+    <button type="button"
+            class="btn btn-primary me-2"
+            onclick="document.getElementById('cameraInput').click()">
+        📸 Take Photo
+    </button>
+
+    <button type="button"
+            class="btn btn-secondary"
+            onclick="document.getElementById('fileInput').click()">
+        🖼️ Choose File
+    </button>
+
+    <input type="file"
+           id="cameraInput"
+           name="photo"
+           accept="image/*"
+           capture="environment"
+           style="display:none;">
+
+    <input type="file"
+           id="fileInput"
+           accept="image/*"
+           style="display:none;">
+
+    <img id="preview"
+         class="img-fluid mt-3 rounded"
+         style="display:none; max-height:300px;">
+
+    </div>
+            <img id="preview" src="" alt="Preview">
+
+            <label>Your Name</label>
+            <input type="text" name="name" required>
+
+            <label>Your City</label>
+            <input type="text" name="city" required>
+
+            <label>Your Wishes ❤️</label>
+            <textarea name="message" placeholder="Write your wishes here..."></textarea>
+
+            <button type="submit" class="submit-btn">
+                Upload Memory ✨
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="footer-text">
+        Thank you for being part of our special day ❤️
+    </div>
+
+</div>
+
+<script>
+
+const cameraInput = document.getElementById('cameraInput');
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+
+function showPreview(file){
+
+    if(file){
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+    }
+
+}
+
+cameraInput.addEventListener('change', function(e){
+
+    showPreview(e.target.files[0]);
+
+});
+
+fileInput.addEventListener('change', function(e){
+
+    const file = e.target.files[0];
+
+    showPreview(file);
+
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+
+    cameraInput.files = dataTransfer.files;
+
+});
+
+//photos animation
+const stack = document.querySelector('.photo-stack');
+
+setInterval(() => {
+
+    const firstCard = stack.firstElementChild;
+
+    stack.appendChild(firstCard);
+
+},3000);
+
+</script>
+
+</body>
+</html>
+
