@@ -18,6 +18,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     padding:20px;
     overflow:hidden;
     position:relative;
@@ -159,6 +160,85 @@ h2{
         font-size:15px;
     }
 }
+
+.footer-text{
+    text-align:center;
+    margin-top:35px;
+    color:white;
+}
+
+.footer-text p{
+    font-size:16px;
+    margin-bottom:18px;
+    font-weight:500;
+}
+
+.developer-credit{
+    display:inline-block;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    padding:14px 28px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,0.35);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    animation:floatCard 3s ease-in-out infinite;
+}
+
+.developer-credit span{
+    display:block;
+    font-size:13px;
+    color:#fff;
+    opacity:.9;
+    margin-bottom:6px;
+    letter-spacing:.5px;
+}
+
+.developer-credit a{
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.developer-credit:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.developer-credit a:hover{
+    color:#ffe45c;
+}
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .developer-credit{
+        width:100%;
+        padding:14px;
+    }
+
+    .developer-credit a{
+        font-size:18px;
+    }
+
+}
 </style>
 </head>
 
@@ -202,6 +282,20 @@ h2{
 
     </div>
 
+</div>
+
+
+<div class="footer-text">
+    <p>💖 Thank you for being part of our special day 💖</p>
+
+    <div class="developer-credit">
+        <span>✨ Website Designed & Developed by</span>
+
+        <a href="https://www.instagram.com/anujnamdev07?igsh=MmFzOWV3YWxtN2Y3"
+           target="_blank">
+            🚀 Anuj Developer
+        </a>
+    </div>
 </div>
 
 </body>

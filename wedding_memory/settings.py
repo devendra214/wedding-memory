@@ -80,11 +80,10 @@ WSGI_APPLICATION = 'wedding_memory.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
+    'default': dj_database_url.parse(
+        "postgresql://wedding_db_6al6_user:xuGx32BSAw7wypPFuG7QL4Afn2xB2pUM@dpg-d8tsvj6rnols73bg9hcg-a.oregon-postgres.render.com/wedding_db_6al6"
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
