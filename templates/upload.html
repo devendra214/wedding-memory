@@ -303,6 +303,73 @@ textarea{
     }
 
 }
+.upload-buttons{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
+    flex-wrap:wrap;
+}
+
+.upload-btn{
+    flex:1;
+    min-width:150px;
+    border:none;
+    padding:14px 20px;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    color:white;
+    transition:all .35s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    position:relative;
+    overflow:hidden;
+}
+
+.upload-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.25);
+    transform:skewX(-25deg);
+    transition:.6s;
+}
+
+.upload-btn:hover::before{
+    left:120%;
+}
+
+.upload-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.upload-btn:active{
+    transform:scale(.96);
+}
+
+.camera-btn{
+    background:linear-gradient(135deg,#ff6b6b,#ff8e53);
+}
+
+.file-btn{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+}
+
+@media(max-width:600px){
+
+    .upload-buttons{
+        flex-direction:column;
+    }
+
+    .upload-btn{
+        width:100%;
+    }
+
+}
 </style>
 </head>
 
@@ -311,10 +378,11 @@ textarea{
 <div class="container">
 
     <div class="header">
-        <h1>💍 Somesh ❤️ Nidhi</h1>
+        <h1>❤️ Nidhi 💍 Somesh </h1>
         <h3>Wedding Memories</h3>
         <p>Share your selfie and wishes with us ✨</p>
     </div>
+    <br/>
 
     <div class="photo-stack">
 
@@ -353,18 +421,21 @@ textarea{
 
     <br>
 
+   <div class="upload-buttons">
+
     <button type="button"
-            class="btn btn-primary me-2"
+            class="upload-btn camera-btn"
             onclick="document.getElementById('cameraInput').click()">
         📸 Take Photo
     </button>
 
     <button type="button"
-            class="btn btn-secondary"
+            class="upload-btn file-btn"
             onclick="document.getElementById('fileInput').click()">
         🖼️ Choose File
     </button>
 
+</div>
     <input type="file"
            id="cameraInput"
            name="photo"
